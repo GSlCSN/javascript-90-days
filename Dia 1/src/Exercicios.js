@@ -11,24 +11,34 @@ if (idade >= 18) {
 
 // Exercicio 2 
 
-let num1 = parseInt(prompt("Qual e o primeiro número para o calculo?: "));
-let num2 = parseInt(prompt("Qual e o segundo número para o calculo?: "));
+let num1 = prompt("Qual é o primeiro número para o cálculo?: ");
+while (num1 === null || num1.trim() === "" || isNaN(Number(num1))) {
+    num1 = prompt("Inválido! Digite o primeiro número: ");
+}
+num1 = Number(num1);
+
+let num2 = prompt("Qual é o segundo número para o cálculo?: ");
+while (num2 === null || num2.trim() === "" || isNaN(Number(num2))) {
+    num2 = prompt("Inválido! Digite o segundo número: ");
+}
+num2 = Number(num2);
+
 let operacao = prompt("Qual operação quer fazer? (+ - * /): ");
 
 if (operacao == "+") {
     console.log(`A soma entre ${num1} e ${num2} é: ${num1 + num2}`);
 } else if (operacao == "-") {
     console.log(`A Subtração entre ${num1} e ${num2} é: ${num1 - num2}`);
-} else if (operacao == "/"){
-    if (num2 > 0) {
-        console.log(`A divisão entre ${num1} e ${num2} é: ${num1 / num2}`);
+} else if (operacao == "/") {
+    if (num2 === 0) {
+        console.log("Erro: Não é possível dividir por zero.");
     } else {
-        console.log("Não e possivel dividir um número por 0");
+        console.log(`A divisão entre ${num1} e ${num2} é: ${num1 / num2}`);
     }
 } else if (operacao == "*") {
     console.log(`A multiplicação entre ${num1} e ${num2} é: ${num1 * num2}`);
 } else {
-    console.log("Informe somente números");
+    console.log("Operação inválida! Use apenas +, -, * ou /.");
 }
 
 // Exercicio 3
